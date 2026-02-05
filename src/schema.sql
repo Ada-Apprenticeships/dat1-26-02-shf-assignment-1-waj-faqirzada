@@ -2,9 +2,9 @@
 .mode column
 
 CREATE TABLE locations (
-    location_id INTEGER NOT NULL,
-    name TEXT NOT NULL,
-    adress TEXT NOT NULL,
+    location_id INTEGER PRIMARY NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    address VARCHAR(50) NOT NULL,
     phone_number TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     opening_hours 
