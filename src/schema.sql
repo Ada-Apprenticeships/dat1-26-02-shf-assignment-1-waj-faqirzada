@@ -1,6 +1,15 @@
 .open fittrackpro.db
 .mode column
 
+DROP TABLE IF EXISTS EQUIPMENT_MAINTENANCE_LOG;
+DROP TABLE IF EXISTS MEMBER_HEALTH_METRICS;
+DROP TABLE IF EXISTS PERSONAL_TRAINING_SESSIONS;
+DROP TABLE IF EXISTS PAYMENT;
+DROP TABLE IF EXISTS CLASS_ATTENDANCE;
+DROP TABLE IF EXISTS ATTENDANCE;
+DROP TABLE IF EXISTS MEMBERSHIPS;
+DROP TABLE IF EXISTS CLASS_SCHEDULE;
+DROP TABLE IF EXISTS CLASSES;
 DROP TABLE IF EXISTS equipment;
 DROP TABLE IF EXISTS staff;
 DROP TABLE IF EXISTS members;
@@ -15,10 +24,14 @@ CREATE TABLE locations (
     opening_hours VARCHAR(20) NOT NULL CHECK (opening_hours LIKE '__:__-__:__')
 );
 
+CREATE TABLE classes (
+
+
 INSERT INTO locations (location_id, name, address, phone_number, email, opening_hours)
 VALUES
 (1, 'Downtown Fitness','123 Main St, London','020 555 1234','downtown@fittrackpro.com','06:00-22:00'),
 (2, 'Suburban Wellness','45 Oak Ln, Manchester','0161 555 5678','suburban@fittrackpro.com','05:00-23:00');
+
 
 CREATE TABLE members (
     member_id INTEGER PRIMARY KEY AUTOINCREMENT,
