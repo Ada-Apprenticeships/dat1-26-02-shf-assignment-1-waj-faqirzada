@@ -32,11 +32,18 @@ CREATE TABLE classes (
     duration INTEGER NOT NULL CHECK (capacity >0), --class cant be shorter then 0 minutes as then theres no point of a class
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
+);
+
 INSERT INTO locations (location_id, name, address, phone_number, email, opening_hours)
 VALUES
 (1, 'Downtown Fitness','123 Main St, London','020 555 1234','downtown@fittrackpro.com','06:00-22:00'),
 (2, 'Suburban Wellness','45 Oak Ln, Manchester','0161 555 5678','suburban@fittrackpro.com','05:00-23:00');
 
+INSERT INTO classes (class_id, name, description, capacity, duration, location_id)
+VALUES
+(1, 'Spin Class', 'High intensity indoor cycling', 20, 45, 1),
+(2, 'Yoga Basics', 'Beginner level yoga', 15, 60, 1),
+(3, 'HIIT', 'High Interval Intensity Training', 10, 30, 2);
 
 CREATE TABLE members (
     member_id INTEGER PRIMARY KEY AUTOINCREMENT,
