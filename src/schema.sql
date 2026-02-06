@@ -107,3 +107,13 @@ VALUES
 (2, 'Elliptical Trainer', 'Cardio', '2023-02-20', '2024-07-20', '2025-02-20', 1),
 (3, 'Smith Machine', 'Strength', '2023-03-10', '2024-03-10', '2025-03-10', 1),
 (4, 'Dumbbell Set', 'Strength', '2023-04-05', '2024-04-05', '2025-04-05', 2);
+
+CREATE TABLE classes_schedule (
+    schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    class_id INTEGER,
+    staff_id INTEGER,
+    start_time DATETIME NOT NULL CHECK (start_time  LIKE '____-__-__ __:__:__'),
+    end_time DATETIME NOT NULL CHECK (end_time LIKE '____-__-__ __:__:__'),
+    FOREIGN KEY (class_id) REFERENCES classes(class_id),
+    FOREIGN KEY (staff_if) REFERENCES staff(staff_id)
+);
