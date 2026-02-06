@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS locations;
 CREATE TABLE locations (
     location_id INTEGER PRIMARY KEY AUTOINCREMENT, --This creates a unique ID number for every location that the database counts up automatically each time you add a new one.
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
@@ -64,4 +64,14 @@ VALUES
 -- (3, 'Sarah', 'Connor', 'sarah.connor@fittrackpro.com', '07999 888777', 'Receptionist', '2023-08-01', 1),
 -- (4, 'Lara', 'Croft', 'lara.croft@fittrackpro.com', '07555 444333', 'Trainer', '2023-09-10', 2);
 
-
+DROP TABLE IF EXISTS equipment;
+CREATE TABLE equipment (
+    equipement INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(100) NOT NULL,
+    type varchar(20) NOT NULL CHECK (type IN('cardio', 'strength')),
+    purchase_datem DATE NOT NULL CHECK (purchase_date LIKE '____-__-__'),
+    last_maintenance_date DATE CHECK (last_maintenance_date LIKE '____-__-__'),
+    next_maintenance_date DATE CHECK (next_maintenance_date LIKE '____-__-__'),
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+ );
