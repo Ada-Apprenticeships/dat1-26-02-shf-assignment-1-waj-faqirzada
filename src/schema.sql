@@ -3,7 +3,7 @@
 
 DROP TABLE IF EXISTS locations;
 CREATE TABLE locations (
-    location_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    location_id INTEGER PRIMARY KEY AUTOINCREMENT, --This creates a unique ID number for every location that the database counts up automatically each time you add a new one.
     name VARCHAR(50) NOT NULL,
     address VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
@@ -43,8 +43,16 @@ CREATE TABLE staff (
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
     phone_number VARCHAR(20) NOT NULL,
     position VARCHAR(50) NOT NULL CHECK (position IN ('Trainer', 'Manager', 'Receptionist', 'Maintenance')),
-    hire_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (hire_data LIKE '____-__-__'),
+    hire_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (hire_date LIKE '____-__-__'),
     location_id INTEGER,
-    FOREIGN KEY (location_id) REFERNCES locations(location_id)  It creates a link that ensures every staff member is assigned to a valid gym from the locations table.
+    FOREIGN KEY (location_id) REFERENCES locations(location_id) --This link makes sure that every person in the staff table is connected to a real place listed in the locations table.
  );
+
+ INSERT INTO staff (staff_id, first_name, last_name, email, phone_number, position, hire_date, location_id)
+VALUES 
+(1, 'James', 'Bond', 'james.bond@fittrackpro.com', '07007 007007', 'Manager', '2022-01-01', 1),
+(2, 'Ivy', 'Irwin', 'ivy.irwin@fittrackpro.com', '07123 456789', 'Trainer', '2023-05-15', 1),
+(3, 'Sarah', 'Connor', 'sarah.connor@fittrackpro.com', '07999 888777', 'Receptionist', '2023-08-01', 1),
+(4, 'Lara', 'Croft', 'lara.croft@fittrackpro.com', '07555 444333', 'Trainer', '2023-09-10', 2);
+
 
