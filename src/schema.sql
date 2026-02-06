@@ -19,15 +19,21 @@ CREATE TABLE locations (
 
 DROP TABLE IF EXISTS members;
 CREATE TABLE members (
-    member_id INTEGER PRIMARY KEEY AUTOINCREMENT,
+    member_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR(50) NOT NULL,
     last_name VARVHAR(50) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
     phone_number VARCHAR(20) NOT NULL,
     date_of_birth DATE NOT NULL CHECK (date_of_birth LIKE '____-__-__'),
-    join_date DATE NOT NULL CHECK CURRENT_DATE CHECK (join_date LIKE '____-__-__'),
+    join_date DATE NOT NULL  CURRENT_DATE CHECK (join_date LIKE '____-__-__'),
     emergency_contact_name VARCHAR(100) NOT NULL,
     emergency_contact_phone VARCHAR(20) NOT NULL
 );
+
+INSERT INTO members (member_id,first_name,last_name,email,phone_number,date_of_birth,join_date,emergency_contact_name,emergency_contact_phone)
+VALUES
+(1,'Alice,Smith,alice.smith@email.com,'07700 900001',1990-05-15,2023-01-10,'Bob Smith','07700 900002'),
+2,Bob,Jones,bob.jones@email.com,'07700 900003',1985-08-22,2023-02-15,'Carol Jones','07700 90000');
+
 
 
