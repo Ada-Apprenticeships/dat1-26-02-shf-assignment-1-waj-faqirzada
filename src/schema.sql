@@ -37,3 +37,13 @@ CREATE TABLE members (
 
 DROP TABLE IF EXISTS staff;
 CREATE TABLE staff (
+    staff_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
+    phone_number VARCHAR(20) NOT NULL,
+    position VARCHAR(50) NOT NULL CHECK (position IN ('Trainer', 'Manager', 'Receptionist', 'Maintenance')),
+    hire_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (hire_data LIKE '____-__-__'),
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERNCES locations(location_id)
+ );
