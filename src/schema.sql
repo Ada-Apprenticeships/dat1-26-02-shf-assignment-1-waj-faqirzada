@@ -57,6 +57,16 @@ CREATE TABLE members (
     emergency_contact_phone VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE memberhips (
+    membership_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    member_id INTEGER,
+    type VARCHAR(40) NOT NULL,
+    starts_date DATE NOT NULL CHECK (start_date LIKE '____-__-__'),
+    end_date DATE NOT NULL CHECK (end_date LIKE '____-__-__'),
+    status VARCHAR(20) NOT NULL CHECK (status IN ('Active', 'Inactive')),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
+
 INSERT INTO members(member_id, first_name, last_name, email, phone_number, date_of_birth, join_date,emergency_contact_name, emergency_contact_phone)
 VALUES
 (1, 'Alice', 'Smith', 'alice.smith@email.com', '07700 900001', '1990-05-15', '2023-01-10', 'Bob Smith', '07700 900002'),
@@ -70,6 +80,8 @@ VALUES
 (9, 'Iris', 'West', 'iris.west@email.com', '07700 900017', '1993-04-14', '2023-09-10', 'Barry Allen', '07700 900018'),
 (10, 'Jack', 'Ryan', 'jack.ryan@email.com', '07700 900019', '1982-10-08', '2023-10-15', 'Cathy Ryan', '07700 900020'),
 (11, 'Kevin', 'Mitnick', 'kevin.mitnick@email.com', '07700 900021', '1996-01-22', '2023-11-20', 'Unknown', '07700 900022');
+
+
 
 CREATE TABLE staff (
     staff_id INTEGER PRIMARY KEY AUTOINCREMENT,
