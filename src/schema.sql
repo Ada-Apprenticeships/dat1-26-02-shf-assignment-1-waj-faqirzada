@@ -31,7 +31,7 @@ CREATE TABLE classes (
     capacity INTEGER NOT NULL CHECK (capacity >0), --has to be a positive number
     duration INTEGER NOT NULL CHECK (capacity >0), --class cant be shorter then 0 minutes as then theres no point of a class
     location_id INTEGER,
-    FOREIGN KEY (loxation_id) REFERENCES locations(location_id)
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 INSERT INTO locations (location_id, name, address, phone_number, email, opening_hours)
 VALUES
 (1, 'Downtown Fitness','123 Main St, London','020 555 1234','downtown@fittrackpro.com','06:00-22:00'),
