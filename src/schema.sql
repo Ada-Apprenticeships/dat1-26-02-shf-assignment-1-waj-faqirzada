@@ -115,7 +115,7 @@ CREATE TABLE classes_schedule (
     start_time DATETIME NOT NULL CHECK (start_time  LIKE '____-__-__ __:__:__'),
     end_time DATETIME NOT NULL CHECK (end_time LIKE '____-__-__ __:__:__'),
     FOREIGN KEY (class_id) REFERENCES classes(class_id),
-    FOREIGN KEY (staff_if) REFERENCES staff(staff_id)
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 
 INSERT INTO class_schedule (schedule_id, class_id, staff_id, start_time, end_time)
