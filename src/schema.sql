@@ -11,10 +11,10 @@ CREATE TABLE locations (
     opening_hours VARCHAR(20) NOT NULL CHECK (opening_hours LIKE '__:__-__:__')
 );
 
-INSERT INTO locations (location_id,name,address,phone_number,email,opening_hours)
-VALUES
-(1, 'Downtown Fitness','123 Main St, London','020 555 1234','downtown@fittrackpro.com','06:00-22:00'),
-(2, 'Suburban Wellness','45 Oak Ln, Manchester','0161 555 5678','suburban@fittrackpro.com','05:00-23:00');
+-- INSERT INTO locations (location_id,name,address,phone_number,email,opening_hours)
+-- VALUES
+-- (1, 'Downtown Fitness','123 Main St, London','020 555 1234','downtown@fittrackpro.com','06:00-22:00'),
+-- (2, 'Suburban Wellness','45 Oak Ln, Manchester','0161 555 5678','suburban@fittrackpro.com','05:00-23:00');
 
 
 DROP TABLE IF EXISTS members;
@@ -30,8 +30,10 @@ CREATE TABLE members (
     emergency_contact_phone VARCHAR(20) NOT NULL
 );
 
-INSERT INTO members(first_name,last_name,email,phone_number,date_of_birth,join_date,emergency_contact_name, emergency_contact_phone)
-VALUES
-('Alice', 'Smith', 'alice.smith@email.com', '07700 900001', '1990-05-15', '2023-01-10', 'Bob Smith', '07700 900002'),
-('Bob', 'Jones', 'bob.jones@email.com', '07700 900003', '1985-08-22', '2023-02-15', 'Carol Jones', '07700 900004');
+-- INSERT INTO members(first_name,last_name,email,phone_number,date_of_birth,join_date,emergency_contact_name, emergency_contact_phone)
+-- VALUES
+-- ('Alice', 'Smith', 'alice.smith@email.com', '07700 900001', '1990-05-15', '2023-01-10', 'Bob Smith', '07700 900002'),
+-- ('Bob', 'Jones', 'bob.jones@email.com', '07700 900003', '1985-08-22', '2023-02-15', 'Carol Jones', '07700 900004');
 
+DROP TABLE IF EXISTS staff;
+CREATE TABLE staff (
