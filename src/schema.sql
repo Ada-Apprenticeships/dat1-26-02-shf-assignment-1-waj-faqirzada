@@ -66,10 +66,10 @@ VALUES
 
 DROP TABLE IF EXISTS equipment;
 CREATE TABLE equipment (
-    equipement INTEGER PRIMARY KEY AUTOINCREMENT,
+    equipment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
-    type varchar(20) NOT NULL CHECK (type IN('cardio', 'strength')),
-    purchase_datem DATE NOT NULL CHECK (purchase_date LIKE '____-__-__'),
+    type varchar(20) NOT NULL CHECK (type IN('Cardio', 'Strength')),
+    purchase_date DATE NOT NULL CHECK (purchase_date LIKE '____-__-__'),
     last_maintenance_date DATE CHECK (last_maintenance_date LIKE '____-__-__'),
     next_maintenance_date DATE CHECK (next_maintenance_date LIKE '____-__-__'),
     location_id INTEGER,
