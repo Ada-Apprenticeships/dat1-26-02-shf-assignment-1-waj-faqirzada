@@ -31,7 +31,7 @@ CREATE TABLE classes (
     capacity INTEGER NOT NULL CHECK (capacity >0), --has to be a positive number
     duration INTEGER NOT NULL CHECK (capacity >0), --class cant be shorter then 0 minutes as then theres no point of a class
     location_id INTEGER,
-    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+    FOREIGN KEY (location_id) REFERENCES locations(location_id) --Foreign Key is like a permanent link that prevents you from listing a location that doesn't actually exist in your main records.
 );
 
 INSERT INTO locations (location_id, name, address, phone_number, email, opening_hours)
@@ -80,8 +80,7 @@ CREATE TABLE staff (
     position VARCHAR(50) NOT NULL CHECK (position IN ('Trainer', 'Manager', 'Receptionist', 'Maintenance')),
     hire_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (hire_date LIKE '____-__-__'),
     location_id INTEGER,
-    FOREIGN KEY (location_id) REFERENCES locations(location_id) --This link makes sure that every person in the staff table is connected to a real place listed in the locations table.
- );
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 
  INSERT INTO staff (staff_id, first_name, last_name, email, phone_number, position, hire_date, location_id)
 VALUES 
