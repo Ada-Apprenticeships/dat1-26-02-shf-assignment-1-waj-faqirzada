@@ -45,5 +45,6 @@ CREATE TABLE staff (
     position VARCHAR(50) NOT NULL CHECK (position IN ('Trainer', 'Manager', 'Receptionist', 'Maintenance')),
     hire_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (hire_data LIKE '____-__-__'),
     location_id INTEGER,
-    FOREIGN KEY (location_id) REFERNCES locations(location_id)
+    FOREIGN KEY (location_id) REFERNCES locations(location_id)  It creates a link that ensures every staff member is assigned to a valid gym from the locations table.
  );
+
