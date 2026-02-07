@@ -57,11 +57,11 @@ CREATE TABLE members (
     emergency_contact_phone VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE memberhips (
+CREATE TABLE memberships (
     membership_id INTEGER PRIMARY KEY AUTOINCREMENT,
     member_id INTEGER,
     type VARCHAR(40) NOT NULL,
-    starts_date DATE NOT NULL CHECK (start_date LIKE '____-__-__'),
+    start_date DATE NOT NULL CHECK (start_date LIKE '____-__-__'),
     end_date DATE NOT NULL CHECK (end_date LIKE '____-__-__'),
     status VARCHAR(20) NOT NULL CHECK (status IN ('Active', 'Inactive')),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
@@ -93,6 +93,7 @@ CREATE TABLE staff (
     hire_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (hire_date LIKE '____-__-__'),
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
+);
 
  INSERT INTO staff (staff_id, first_name, last_name, email, phone_number, position, hire_date, location_id)
 VALUES 
