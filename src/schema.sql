@@ -135,6 +135,13 @@ CREATE TABLE class_schedule (
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 
+CREATE TABLE class_attendance (
+    class_attendance_id PRIMARY KEY AUTOINCREMENT,
+    schedule_id INTEGER,
+    member_id INTEGER,
+    attendance_status VARCHAR(
+
+
 INSERT INTO class_schedule (schedule_id, class_id, staff_id, start_time, end_time)
 VALUES
 (1, 1, 2, '2025-02-01 09:00:00', '2025-02-01 09:45:00'),
