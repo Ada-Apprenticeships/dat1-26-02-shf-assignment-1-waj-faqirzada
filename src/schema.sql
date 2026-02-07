@@ -151,3 +151,15 @@ VALUES
 (3, 3, 2, '2025-02-02 18:00:00', '2025-02-02 18:30:00'),
 (7, 2, 4, '2025-02-05 12:00:00', '2025-02-05 13:00:00');
 
+INSERT INTO class_attendance (class_attendance_id, schedule_id, member_id, attendance_status)
+VALUES
+(1, 1, 5, 'Registered'),
+(2, 1, 3, 'Attended'),
+(3, 7, 3, 'Registered'),
+(4, 3, 5, 'Registered'),
+(5, 2, 1, 'Attended'),
+(6, 2, 2, 'Registered'),
+(7, 3, 4, 'Attended'),
+(13, 7, 1, 'Attended'),
+(14, 8, 2, 'Attended'),
+(15, 9, 5, 'Attended');
