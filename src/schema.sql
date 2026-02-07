@@ -144,6 +144,12 @@ CREATE TABLE class_attendance (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
+INSERT INTO class_schedule (schedule_id, class_id, staff_id, start_time, end_time)
+VALUES
+(1, 1, 2, '2025-02-01 09:00:00', '2025-02-01 09:45:00'),
+(2, 2, 4, '2025-02-01 10:00:00', '2025-02-01 11:00:00'),
+(3, 3, 2, '2025-02-02 18:00:00', '2025-02-02 18:30:00'),
+(7, 2, 4, '2025-02-05 12:00:00', '2025-02-05 13:00:00');
 
 INSERT INTO class_schedule (schedule_id, class_id, staff_id, start_time, end_time)
 VALUES
