@@ -81,7 +81,12 @@ VALUES
 (10, 'Jack', 'Ryan', 'jack.ryan@email.com', '07700 900019', '1982-10-08', '2023-10-15', 'Cathy Ryan', '07700 900020'),
 (11, 'Kevin', 'Mitnick', 'kevin.mitnick@email.com', '07700 900021', '1996-01-22', '2023-11-20', 'Unknown', '07700 900022');
 
-
+INSERT INTO memberships (membership_id, member_id, type, start_date, end_date, status)
+VALUES
+(1, 1, 'Standard', '2024-01-01', '2025-01-01', 'Inactive'),
+(2, 2, 'Premium', '2024-06-15', '2025-06-15', 'Active'),
+(3, 3, 'Standard', '2024-03-20', '2025-03-20', 'Active'),
+(4, 5, 'Premium', '2024-05-10', '2025-05-10', 'Active');
 
 CREATE TABLE staff (
     staff_id INTEGER PRIMARY KEY AUTOINCREMENT,
