@@ -139,7 +139,10 @@ CREATE TABLE class_attendance (
     class_attendance_id PRIMARY KEY AUTOINCREMENT,
     schedule_id INTEGER,
     member_id INTEGER,
-    attendance_status VARCHAR(
+    attendance_status VARCHAR(20) NOT NULL CHECK (attendance_status IN ('Registered', 'Attended', 'Unattended')),
+    FOREIGN KEY (schedule_id) REFERENCES class_schedule(schedule_id),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
 
 
 INSERT INTO class_schedule (schedule_id, class_id, staff_id, start_time, end_time)
