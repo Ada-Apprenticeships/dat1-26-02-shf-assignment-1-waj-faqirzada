@@ -136,7 +136,7 @@ CREATE TABLE class_schedule (
 );
 
 CREATE TABLE class_attendance (
-    class_attendance_id PRIMARY KEY AUTOINCREMENT,
+    class_attendance_id INTEGER PRIMARY KEY AUTOINCREMENT,
     schedule_id INTEGER,
     member_id INTEGER,
     attendance_status VARCHAR(20) NOT NULL CHECK (attendance_status IN ('Registered', 'Attended', 'Unattended')),
