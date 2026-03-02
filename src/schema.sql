@@ -117,3 +117,15 @@ CREATE TABLE class_attendance (
     FOREIGN KEY (schedule_id) REFERENCES class_schedule(schedule_id),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
+
+CREATE TABLE personal_training_sessions (
+    session_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    member_id INTEGER NOT NULL,
+    staff_id INTEGER NOT NULL,
+    session_date DATE NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    notes TEXT,
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+);
