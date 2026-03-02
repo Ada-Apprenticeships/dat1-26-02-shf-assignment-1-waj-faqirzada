@@ -27,7 +27,7 @@ CREATE TABLE locations (
 CREATE TABLE classes (
     class_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
-    description TEXT,
+    description VARCHAR(255) NOT NULL,
     capacity INTEGER NOT NULL CHECK (capacity >0), --has to be a positive number
     duration INTEGER NOT NULL CHECK (capacity >0), --class cant be shorter then 0 minutes as then theres no point of a class
     location_id INTEGER,
@@ -139,5 +139,15 @@ CREATE TABLE personal_training_sessions (
     notes TEXT,
     FOREIGN KEY (member_id) REFERENCES members(member_id),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+);
+
+CREATE TABLE equipment_maintance_log (
+    log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    equipment_id INTEGER NOT NULL,
+    maintenance_date DATE NOT NULL CHECK (maintenance_date LIKE '____-__-__'),
+    description VARCHAR(255) NOT NULL,
+    staff_id INTEGER NOT NULL,
+    FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id),
+    FOREIGN key (staff_id) REFERENCES staff(staff_id)
 );
 
