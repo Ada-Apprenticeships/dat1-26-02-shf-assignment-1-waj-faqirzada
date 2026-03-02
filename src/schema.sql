@@ -56,6 +56,17 @@ CREATE TABLE memberships (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
+CREATE TABLE members_health_metrics (
+    metric_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    member_id INTEGER NOT NULL,
+    measurement_date DATE NOT NULL CHECK (measurement_date LIKE '____-__-__'),
+    weight DECIMAL(5, 2) NOT NULL,
+    body_fat_percentage DECIMAL(4, 1),
+    muscle_mass DECIMAL(5, 2),
+    bmi DECIMAL(4, 1),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
+
 CREATE TABLE payments (
     payment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     MEMBER_ID INTEGER NOT NULL,
@@ -129,3 +140,4 @@ CREATE TABLE personal_training_sessions (
     FOREIGN KEY (member_id) REFERENCES members(member_id),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
+
