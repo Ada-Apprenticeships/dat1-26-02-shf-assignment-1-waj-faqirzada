@@ -1,7 +1,7 @@
 .open fittrackpro.db
 .mode column
 
-DROP TABLE IF EXISTS equipment_maintance_log;
+DROP TABLE IF EXISTS equipment_maintenance_log;
 DROP TABLE IF EXISTS member_health_metrics; 
 DROP TABLE IF EXISTS personal_training_sessions;
 DROP TABLE IF EXISTS payments;
@@ -141,7 +141,7 @@ CREATE TABLE personal_training_sessions (
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 
-CREATE TABLE equipment_maintance_log (
+CREATE TABLE equipment_maintenance_log (
     log_id INTEGER PRIMARY KEY AUTOINCREMENT,
     equipment_id INTEGER NOT NULL,
     maintenance_date DATE NOT NULL CHECK (maintenance_date LIKE '____-__-__'),
@@ -150,4 +150,3 @@ CREATE TABLE equipment_maintance_log (
     FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id),
     FOREIGN key (staff_id) REFERENCES staff(staff_id)
 );
-

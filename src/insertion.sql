@@ -99,13 +99,13 @@ VALUES
 (3, 5, 2, '2025-02-04', '10:00:00', '11:00:00', 'Form check');
 
 
-INSERT INTO member_health_metric(metric_id,member_id,measurement_date,weight,body_fat_percentage,muscle_mass,bmi)
+INSERT INTO member_health_metrics (metric_id, member_id, measurement_date, weight, body_fat_percentage, muscle_mass, bmi)
 VALUES
-(5, '2025-01-10', 65.0, 22.5, 48.0, 24.1),
-(3, '2025-01-15', 80.0, 18.0, 60.0, 25.5);
+(1, 5, '2025-01-10', 65.0, 22.5, 48.0, 24.1),
+(2, 3, '2025-01-15', 80.0, 18.0, 60.0, 25.5);
 
 
-INSERT INTO equipment_maintance_log(log_id,equipment_id,maintenance_date,description,staff_id)
+INSERT INTO equipment_maintenance_log (log_id, equipment_id, maintenance_date, description, staff_id)
 VALUES
 (1, 1, '2024-12-15', 'Belt replacement', 1),
 (2, 2, '2024-07-20', 'Oiling and sensor check', 1),
