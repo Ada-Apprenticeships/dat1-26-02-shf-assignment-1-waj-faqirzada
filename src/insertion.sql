@@ -99,3 +99,9 @@ VALUES
 (3, 5, 2, '2025-02-04', '10:00:00', '11:00:00', 'Form check');
 
 
+INSERT INTO member_health_metric(metric_id,member_id,measurement_date,weight,body_fat_percentage,muscle_mass,bmi)
+VALUES
+(5, '2025-01-10', 65.0, 22.5, 48.0, 24.1),
+(3, '2025-01-15', 80.0, 18.0, 60.0, 25.5);
+
+

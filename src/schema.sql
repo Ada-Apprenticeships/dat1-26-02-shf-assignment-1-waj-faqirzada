@@ -56,7 +56,7 @@ CREATE TABLE memberships (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
-CREATE TABLE members_health_metrics (
+CREATE TABLE member_health_metrics (
     metric_id INTEGER PRIMARY KEY AUTOINCREMENT,
     member_id INTEGER NOT NULL,
     measurement_date DATE NOT NULL CHECK (measurement_date LIKE '____-__-__'),
