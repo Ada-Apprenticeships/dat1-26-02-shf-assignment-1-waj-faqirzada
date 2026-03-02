@@ -2,7 +2,7 @@
 .mode column
 
 DROP TABLE IF EXISTS equipment_maintenance_log;
-DROP TABLE IF EXISTS member_health_metrics; 
+DROP TABLE IF EXISTS member_health_metrics;
 DROP TABLE IF EXISTS personal_training_sessions;
 DROP TABLE IF EXISTS payments;
 DROP TABLE IF EXISTS class_attendance;
@@ -28,8 +28,8 @@ CREATE TABLE classes (
     class_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    capacity INTEGER NOT NULL CHECK (capacity >0), --has to be a positive number
-    duration INTEGER NOT NULL CHECK (capacity >0), --class cant be shorter then 0 minutes as then theres no point of a class
+    capacity INTEGER NOT NULL CHECK (capacity > 0), --has to be a positive number
+    duration INTEGER NOT NULL CHECK (duration > 0), --class cant be shorter than 0 minutes
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id) --Foreign Key is like a permanent link that prevents you from listing a location that doesn't actually exist in your main records.
 );
@@ -37,7 +37,7 @@ CREATE TABLE classes (
 CREATE TABLE members (
     member_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR(50) NOT NULL,
-    last_name VARcHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
     phone_number VARCHAR(20) NOT NULL,
     date_of_birth DATE NOT NULL CHECK (date_of_birth LIKE '____-__-__'),
@@ -69,11 +69,11 @@ CREATE TABLE member_health_metrics (
 
 CREATE TABLE payments (
     payment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    MEMBER_ID INTEGER NOT NULL,
+    member_id INTEGER NOT NULL,
     amount DECIMAL(10, 2) NOT NULL,
     payment_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     payment_method VARCHAR(50) NOT NULL CHECK(payment_method IN ('Credit Card', 'Bank Transfer', 'PayPal')),
-    payment_type VARCHAR(50) NOT NULL CHECK (payment_type IN ('Monthly membership fee', 'Day pass;')),
+    payment_type VARCHAR(50) NOT NULL CHECK (payment_type IN ('Monthly membership fee', 'Day pass')),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
@@ -92,19 +92,19 @@ CREATE TABLE staff (
 CREATE TABLE equipment (
     equipment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
-    type varchar(20) NOT NULL CHECK (type IN('Cardio', 'Strength')),
+    type VARCHAR(20) NOT NULL CHECK (type IN('Cardio', 'Strength')),
     purchase_date DATE NOT NULL CHECK (purchase_date LIKE '____-__-__'),
     last_maintenance_date DATE CHECK (last_maintenance_date LIKE '____-__-__'),
     next_maintenance_date DATE CHECK (next_maintenance_date LIKE '____-__-__'),
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
- );
+);
 
 CREATE TABLE class_schedule (
     schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
     class_id INTEGER,
     staff_id INTEGER,
-    start_time DATETIME NOT NULL CHECK (start_time  LIKE '____-__-__ __:__:__'),
+    start_time DATETIME NOT NULL CHECK (start_time LIKE '____-__-__ __:__:__'),
     end_time DATETIME NOT NULL CHECK (end_time LIKE '____-__-__ __:__:__'),
     FOREIGN KEY (class_id) REFERENCES classes(class_id),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
@@ -148,5 +148,5 @@ CREATE TABLE equipment_maintenance_log (
     description VARCHAR(255) NOT NULL,
     staff_id INTEGER NOT NULL,
     FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id),
-    FOREIGN key (staff_id) REFERENCES staff(staff_id)
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
