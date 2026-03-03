@@ -2,7 +2,7 @@
 .mode column
 
 -- 1.1-Retrieve all members
-
+SELECT member_id, first_name
 
 -- 1.2-Update a member's contact information
 
