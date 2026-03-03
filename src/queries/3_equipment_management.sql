@@ -14,6 +14,6 @@ GROUP BY equipment_type;
 -- 3.3 -Calculate average age of equipment by type (in days)
  SELECT 
     equipment_type,
-    AVG(JULIANDAY('now') - JULIANDAY(purchase_date)) AS avg_age_days
+    AVG(JULIANDAY('now') - JULIANDAY(purchase_date)) AS avg_age_days -- age of EQ(in days) by differnce of today and pruchase date 
 FROM equipment
 GROUP BY equipment_type;

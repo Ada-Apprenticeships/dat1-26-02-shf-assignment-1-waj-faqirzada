@@ -7,7 +7,7 @@ VALUES (11, 50.00, datetime('now'), 'Credit Card', 'Monthly membership fee');
 
 -- 2.2 -Calculate total revenue from membership fees for each month
 SELECT 
-    strftime('%Y-%m', payment_date) AS month, 
+    strftime('%Y-%m', payment_date) AS month, --extracting the year and month to group the payments by calender month
     SUM(amount) AS total_revenue
 FROM payments
 WHERE payment_type = 'Monthly membership fee'
