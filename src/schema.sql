@@ -16,8 +16,7 @@ DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS locations;
 
 CREATE TABLE locations (
-    location_id INTEGER PRIMARY KEY AUTOINCREMENT, --This creates a unique ID number for every location that the database counts up automatically each time you add a new one.
-    name VARCHAR(100) NOT NULL,
+    location_id INTEGER PRIMARY KEY AUTOINCREMENT,
     address VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
@@ -29,9 +28,9 @@ CREATE TABLE classes (
     name VARCHAR(100) NOT NULL,
     description VARCHAR(255) NOT NULL,
     capacity INTEGER NOT NULL CHECK (capacity > 0), --has to be a positive number as you cant have a negative number of people
-    duration INTEGER NOT NULL CHECK (duration > 0), --class cant be shorter than 0 minutes as you cant have a negative working out time due ot logic
+    duration INTEGER NOT NULL CHECK (duration > 0), --class cant be shorter than 0 minutes as you cant have a negative working out time due to logic
     location_id INTEGER,
-    FOREIGN KEY (location_id) REFERENCES locations(location_id) --Foreign Key is like a permanent link that prevents you from listing a location that doesn't actually exist in your main records.
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
 CREATE TABLE members (
