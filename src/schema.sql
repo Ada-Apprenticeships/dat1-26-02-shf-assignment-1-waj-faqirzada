@@ -28,8 +28,8 @@ CREATE TABLE classes (
     class_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    capacity INTEGER NOT NULL CHECK (capacity > 0), --has to be a positive number
-    duration INTEGER NOT NULL CHECK (duration > 0), --class cant be shorter than 0 minutes
+    capacity INTEGER NOT NULL CHECK (capacity > 0), --has to be a positive number as you cant have a negative number of people
+    duration INTEGER NOT NULL CHECK (duration > 0), --class cant be shorter than 0 minutes as you cant have a negative working out time due ot logic
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id) --Foreign Key is like a permanent link that prevents you from listing a location that doesn't actually exist in your main records.
 );
@@ -43,7 +43,7 @@ CREATE TABLE members (
     date_of_birth DATE NOT NULL CHECK (date_of_birth LIKE '____-__-__'),
     join_date DATE NOT NULL DEFAULT CURRENT_DATE CHECK (join_date LIKE '____-__-__'),
     emergency_contact_name VARCHAR(100) NOT NULL,
-    emergency_contact_phone VARCHAR(20) NOT NULL
+    emergency_contact_phone VARCHAR(20) NOT NULL 
 );
 
 CREATE TABLE memberships (
@@ -60,10 +60,10 @@ CREATE TABLE member_health_metrics (
     metric_id INTEGER PRIMARY KEY AUTOINCREMENT,
     member_id INTEGER NOT NULL,
     measurement_date DATE NOT NULL CHECK (measurement_date LIKE '____-__-__'),
-    weight DECIMAL(5, 2) NOT NULL,
-    body_fat_percentage DECIMAL(4, 1),
-    muscle_mass DECIMAL(5, 2),
-    bmi DECIMAL(4, 1),
+    weight DECIMAL(4, 2) NOT NULL,
+    body_fat_percentage DECIMAL(4, 2),
+    muscle_mass DECIMAL(4, 2),
+    bmi DECIMAL(4, 2),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
