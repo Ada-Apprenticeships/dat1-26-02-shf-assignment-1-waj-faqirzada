@@ -6,7 +6,7 @@ SELECT member_id, first_name,last_name,email,join_date
 FROM members:
 
 -- 1.2-Update a member's contact information
-
+SET phone_-number = '0700 10005
 
 -- 1.3-Count total number of members
 
