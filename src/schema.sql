@@ -17,6 +17,7 @@ DROP TABLE IF EXISTS locations;
 
 CREATE TABLE locations (
     location_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email LIKE '%@%.%'),
