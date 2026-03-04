@@ -15,7 +15,7 @@ SELECT COUNT(*) AS total_members
 FROM members;
 
 -- 1.4-Find member with the most class registrations
-SELECT m.member_id, m.first_name, m.last_name, COUNT (ca.class_attendance_id) AS registration_count --m.member_id is saying look for member_id in the members table 
+SELECT m.member_id, m.first_name, m.last_name, COUNT (ca.class_attendance_id) AS registration_count --m.member_id is saying look for member_id in the members table which we have in the schema table
 FROM members m
 JOIN class_attendance ca ON m.member_id = ca.member_id
 GROUP BY m.member_id
