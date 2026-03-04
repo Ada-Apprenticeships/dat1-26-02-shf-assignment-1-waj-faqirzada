@@ -72,7 +72,7 @@ CREATE TABLE payments (
     member_id INTEGER NOT NULL,
     amount DECIMAL(10, 2) NOT NULL,
     payment_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    payment_method VARCHAR(50) NOT NULL CHECK(payment_method IN ('Credit Card', 'Bank Transfer', 'PayPal')),
+    payment_method VARCHAR(50) NOT NULL CHECK(payment_method IN ('Credit Card', 'Bank Transfer', 'PayPal', 'cash')),
     payment_type VARCHAR(50) NOT NULL CHECK (payment_type IN ('Monthly membership fee', 'Day pass')),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );

@@ -20,7 +20,7 @@ JOIN class_schedule cs ON c.class_id = cs.class_id
 WHERE DATE(cs.start_time) = '2025-02-01';
 
 -- 4.3 -Register member with ID 11 for the Spin Class (class_id 1) on '2025-02-01'
-INSERT INTO class_attendance (member_id, schedule_id, attendance_status)
+INSERT INTO class_attendance (member_id, schedule_id, attendance_status) -- Adds a brand new row of data into the class_attendance  table so that a record of what class a specefic member has signed up to 
 VALUES (11, (SELECT schedule_id FROM class_schedule
     WHERE class_id = 1 AND DATE(start_time) = '2025-02-01'), 'Registered');
 

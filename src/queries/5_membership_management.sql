@@ -15,7 +15,7 @@ WHERE mem.status = 'Active';
 -- 5.2 - Calculate the average duration of gym visits for each membership type
 SELECT 
     mem.type AS membership_type,
-    AVG((strftime('%s', a.check_out_time) - strftime('%s', a.check_in_time)) / 60.0) AS avg_visit_duration_minutes
+    AVG((strftime('%s', a.check_out_time) - strftime('%s', a.check_in_time)) / 60.0) AS avg_visit_duration_minutes -- converts the check in/out timestamps into seconds and then calculates the difference between them and then it divides it by 60 
 FROM memberships mem
 JOIN attendance a ON mem.member_id = a.member_id
 GROUP BY mem.type;

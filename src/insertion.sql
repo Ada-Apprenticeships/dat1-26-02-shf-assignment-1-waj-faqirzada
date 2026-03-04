@@ -79,7 +79,8 @@ VALUES
 (3, 3, 40.00, '2024-12-20 09:00:00', 'Credit Card', 'Monthly membership fee'),
 (4, 5, 60.00, '2024-12-10 14:00:00', 'PayPal', 'Monthly membership fee'),
 (5, 1, 40.00, '2025-01-01 10:00:00', 'Credit Card', 'Monthly membership fee'),
-(6, 2, 60.00, '2025-01-15 12:00:00', 'Bank Transfer', 'Monthly membership fee');
+(6, 2, 60.00, '2025-01-15 12:00:00', 'Bank Transfer', 'Monthly membership fee'),
+(7,11,20.00,'2025-01-20 15:30:00','Cash','Day pass') ;
 
 INSERT INTO personal_training_sessions (session_id, member_id, staff_id, session_date, start_time, end_time, notes) 
 VALUES
