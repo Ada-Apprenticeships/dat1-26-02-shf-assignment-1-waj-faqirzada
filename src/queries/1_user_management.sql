@@ -32,11 +32,10 @@ ORDER BY registration_count ASC
 LIMIT 1;
 
 -- 1.6-Count the total number of members who have attended at least two classes
-SELECT COUNT(*) AS count
+SELECT COUNT(*) AS Count
 FROM (
     SELECT member_id
     FROM class_attendance
     WHERE attendance_status = 'Attended'
     GROUP BY member_id
-    HAVING COUNT(*) >= 2
-) AS subquery;
+    HAVING COUNT(*) >= 2);
