@@ -14,8 +14,7 @@ SELECT
     c.class_id,
     c.name,
     cs.start_time,
-    cs.end_time,
-    cs.available_spots
+    cs.end_time
 FROM classes C
 JOIN class_schedule cs ON c.class_id = cs.class_id
 WHERE DATE(cs.start_time) = '2025-02-01';
@@ -38,7 +37,7 @@ SELECT
 FROM classes c 
 JOIN class_schedule cs ON c.class_id = cs.class_id
 JOIN class_attendance ca ON cs.schedule_id = ca.schedule_id
-WHERE ca.status = 'Registered'
+WHERE ca.attendance_status = 'Registered'
 GROUP BY c.class_id, c.name
 ORDER BY registration_count DESC 
 LIMIT 1;
@@ -48,6 +47,6 @@ SELECT AVG(class_count)
 FROM (
     SELECT COUNT(*) AS class_count
     FROM class_attendance
-    WHERE status IN ('Registered', 'Attended')
+    WHERE attendance_status IN ('Registered', 'Attended')
     GROUP BY member_id
 )AS members_count;

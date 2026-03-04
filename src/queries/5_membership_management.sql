@@ -6,19 +6,19 @@ SELECT
     m.member_id,
     m.first_name,
     m.last_name,
-    mem.membership_type,
-    mem.join_date
+    mem.type AS membership_type,
+    m.join_date
 FROM members m
 JOIN memberships mem ON m.member_id = mem.member_id
-WHERE mem.status = 'Active' ;
+WHERE mem.status = 'Active';
 
 -- 5.2 - Calculate the average duration of gym visits for each membership type
 SELECT 
-    mem.membership_type,
-    AVG((strftime('%s', gv.check_out) - strftime('%s', gv.check_in)) / 60.0) AS avg_visit_duration_minutes
+    mem.type AS membership_type,
+    AVG((strftime('%s', a.check_out_time) - strftime('%s', a.check_in_time)) / 60.0) AS avg_visit_duration_minutes
 FROM memberships mem
-JOIN gym_visits gv ON mem.member_id = gv.member_id
-GROUP BY mem.membership_type;
+JOIN attendance a ON mem.member_id = a.member_id
+GROUP BY mem.type;
 
 -- 5.3 - Identify members with expiring memberships in 2025
 SELECT
