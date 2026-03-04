@@ -1,8 +1,8 @@
 .open fittrackpro.db
 .mode column
 
--- 5.1 
-SELECT - List all active memberships with member details   
+-- 5.1 -List all active memberships with member details   
+SELECT
     m.member_id,
     m.first_name,
     m.last_name,

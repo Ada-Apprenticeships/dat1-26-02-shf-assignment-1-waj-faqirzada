@@ -2,10 +2,9 @@
 .mode column
 
 -- 4.1 -List all classes with their instructors
-SELECT 
-    c.class_id,
+SELECT c.class_id,
     c.name AS class_name,
-    s.name AS instructor_name
+     s.first_name || ' ' || s.last_name AS instructor_name 
 FROM classes c
 JOIN class_schedule cs ON c.class_id = cs.class_id
 JOIN staff s ON cs.staff_id = s.staff_id;
@@ -22,7 +21,7 @@ JOIN class_schedule cs ON c.class_id = cs.class_id
 WHERE DATE(cs.start_time) = '2025-02-01';
 
 -- 4.3 -Register member with ID 11 for the Spin Class (class_id 1) on '2025-02-01'
-INSERT INTO class_attendance (member_id, schedule_id, status)
+INSERT INTO class_attendance (member_id, schedule_id, attendance_status)
 VALUES (11, (SELECT schedule_id FROM class_schedule
     WHERE class_id = 1 AND DATE(start_time) = '2025-02-01'), 'Registered');
 
